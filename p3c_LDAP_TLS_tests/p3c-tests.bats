@@ -81,7 +81,14 @@ setup() {
     assert_exists "/etc/ldap/ssl/private/ldap01.$username.aula82.local.key.pem"    
 }
 
-@test "13. Check certificates to be configured in LDAP are the right ones" {    
+@test "13. Check Certificate is issued by the CA Root installed in the system" {    
+    ca_root_id=$(openssl x509 -in /etc/ldap/ssl/ldap01.$username.aula82.local.pem -noout -ext authorityKeyIdentifier | tail -1 )
+    cert_issuer_id=$(openssl x509 -in /etc/ssl/certs/asir2_root_ca.pem -noout -ext subjectKeyIdentifier | tail -1 )
+    [[ "${ca_root_id}"  == "${cert_issuer_id}" ]]
+ 
+}
+
+@test "14. Check certificates to be configured in LDAP are the right ones" {    
     run openssl x509 -in /etc/ssl/certs/asir2_root_ca.pem -text -noout
     assert_line --partial 'Issuer: CN = ASIR2 Root CA'
     assert_line --partial 'Subject: CN = ASIR2 Root CA'            
@@ -93,7 +100,7 @@ setup() {
 
 
 
-@test "14. Check certificates proper permissions" {    
+@test "15. Check certificates proper permissions" {    
     run stat -L -c '%a %U %G' '/etc/ssl/certs/asir2_root_ca.pem'
     assert_output --partial '644 root root' 
 
@@ -105,34 +112,34 @@ setup() {
 }
 
 
-@test "15. Check hostname ldap01.username.aula82.local" {        
+@test "16. Check hostname ldap01.username.aula82.local" {        
     echo ldap01.$username.aula82.local | nslookup
 }
 
 
-@test "16. Check LDAP anonymous connection" {    
+@test "17. Check LDAP anonymous connection" {    
     ldapwhoami -x -H ldap://ldap01.$username.aula82.local
 }
 
-@test "17. Check LDAP cn=admin,cn=config  connection" {    
+@test "18. Check LDAP cn=admin,cn=config  connection" {    
     run ldapwhoami -x -D cn=admin,cn=config -w SAD -H ldap://ldap01.$username.aula82.local
     assert_output 'dn:cn=admin,cn=config'
 }
 
-@test "18. Check LDAP olcTLSCertificates* installed" {
+@test "19. Check LDAP olcTLSCertificates* installed" {
     run ldapsearch -LLL -D cn=admin,cn=config -w SAD  -H ldap://ldap01.$username.aula82.local -b cn=config -s base
     assert_line "olcTLSCACertificateFile: /etc/ssl/certs/asir2_root_ca.pem"
     assert_line "olcTLSCertificateFile: /etc/ldap/ssl/ldap01.$username.aula82.local.pem"
     assert_line --partial "olcTLSCertificateKeyFile: /etc/ldap/ssl/private/ldap01.$username.aula82.local"   
 }
 
-@test "19. Check LDAP TLS anonymous connection" {
+@test "20. Check LDAP TLS anonymous connection" {
     
     run ldapwhoami -x -ZZ -H ldap://ldap01.$username.aula82.local
     assert_line "anonymous"
 }
 
-@test "20. Check LDAP TLS cn=admin,cn=config connection" {    
+@test "21. Check LDAP TLS cn=admin,cn=config connection" {    
     
     run ldapwhoami -x -ZZ  -D cn=admin,cn=config -w SAD -H ldap://ldap01.$username.aula82.local
     assert_output 'dn:cn=admin,cn=config'
