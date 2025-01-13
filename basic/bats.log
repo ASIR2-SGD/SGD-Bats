@@ -1,0 +1,1044 @@
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/bats-tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/bats-tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/bats-tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
+##### setup start
+BATS_TEST_NAME:        test_example_status_and_output-2c_lines
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_status_and_output-2c_lines
+BATS_TEST_DESCRIPTION: example status and output, lines
+BATS_TEST_NUMBER:      1
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 1
+##### teardown test_example_status_and_output-2c_lines
+
+##### setup start
+BATS_TEST_NAME:        test_example_skip
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_skip
+BATS_TEST_DESCRIPTION: example skip
+BATS_TEST_NUMBER:      2
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 2
+##### teardown test_example_skip
+
+##### setup start
+BATS_TEST_NAME:        test_example_load
+BATS_TEST_FILENAME:    /home/carlos/Documents/SAD/sgd/Bats/basic/tests.bats
+BATS_TEST_DIRNAME:     /home/carlos/Documents/SAD/sgd/Bats/basic
+BATS_TEST_NAMES:       test_example_load
+BATS_TEST_DESCRIPTION: example load
+BATS_TEST_NUMBER:      3
+BATS_TMPDIR:           /tmp
+##### setup end
+    example 3
+##### teardown test_example_load
+
