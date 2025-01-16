@@ -43,10 +43,10 @@ setup() {
     assert_output "issuer=CN = ASIR2 Root CA"
     run openssl x509 -in ~/certs/ldap01.$username.aula82.local.pem -noout -subject
     assert_output --partial "CN = ldap01.$username.aula82.local"    
-    run openssl x509 -in /etc/ldap/ssl/ldap01.$username.aula82.local.pem -noout -ext keyUsage | tail -1
-    refute_output "Certificate Sign"
-    run openssl x509 -in /etc/ldap/ssl/ldap01.$username.aula82.local.pem -noout -ext extendedKeyUsage | tail -1
-    assert_output "Digital Signature, Key Encipherment"
+    run openssl x509 -in /etc/ldap/ssl/ldap01.$username.aula82.local.pem -noout -ext keyUsage 
+    assert_line --partial  "Digital Signature, Key Encipherment""
+    run openssl x509 -in /etc/ldap/ssl/ldap01.$username.aula82.local.pem -noout -ext extendedKeyUsage"
+    assert_line --partial "TLS Web Server Authentication"
 }
 
 
