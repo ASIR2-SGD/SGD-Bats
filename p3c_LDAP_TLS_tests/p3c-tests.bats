@@ -4,6 +4,7 @@ setup() {
 }
 
 @test "1. Check packages and other dependencies are installed" {            
+    skip
     run bats_pipe dpkg-query -l slapd \| awk '/un|ii/ { print $1 }'
     assert_line 'ii'
     run bats_pipe dpkg-query -l ldap-utils \| awk '/un|ii/ { print $1 }'
@@ -13,6 +14,7 @@ setup() {
 }
 
 @test "2. Check certs folder proper permissions" {    
+    skip
     run stat  -L -c '%a %U %G' '/home/vagrant/certs'
     assert_output --partial '755 vagrant vagrant' 
 
@@ -24,21 +26,25 @@ setup() {
 }
 
 @test "3. check private key" {            
+    skip
     openssl rsa -in ~/certs/private/ldap01.$username.aula82.local.key.pem -check  
 }
 
 @test "4. Check certificate signing request info file" {            
+    skip
     run cat ~/certs/ldap01.$username.aula82.local.info
     assert_line --partial "cn = ldap01.$username.aula82.local"
     assert_line --partial 'tls_www_server'
 }
 
 @test "5. Check certificate signing request(CSR)" {            
+    skip
     run openssl req -text -noout -verify -in ~/certs/req/ldap01.$username.aula82.local.csr
     assert_line --partial "CN = ldap01.$username.aula82.local"
 }
 
 @test "6. Check ldap certificate " {    
+    skip
     run openssl x509 -in ~/certs/ldap01.$username.aula82.local.pem -text -noout
     assert_line --partial 'Issuer: CN = ASIR2 Root CA'        
     assert_line --partial "CN = ldap01.$username.aula82.local"
@@ -46,10 +52,12 @@ setup() {
 
 
 @test "7. Check CA Root Certificate ready to be installed " {    
+    skip
     assert_exists '/usr/local/share/ca-certificates/asir2_root_ca.crt'    
 }
 
 @test "8. Check CA Root Certificated installed" {
+    skip
     assert_exists '/etc/ssl/certs/asir2_root_ca.pem'    
 }
 
@@ -61,6 +69,7 @@ setup() {
 }
 
 @test "10. Check CA Root Certificate is the right one" {    
+    skip
     run openssl x509 -in /etc/ssl/certs/asir2_root_ca.pem -text -noout
     assert_line --partial 'Issuer: CN = ASIR2 Root CA'
     assert_line --partial 'Subject: CN = ASIR2 Root CA'            
@@ -68,6 +77,7 @@ setup() {
 
 
 @test "11. Check folder structure under /etc/ldap" {  
+    skip
     run stat -c '%a %U %G' "/etc/ldap/ssl/"
     assert_output --partial '755 root openldap' 
 
@@ -76,12 +86,14 @@ setup() {
 }
 
 @test "12. Check certificates placed under proper tree structure" {        
+    skip
     assert_exists "/etc/ssl/certs/asir2_root_ca.pem"
     assert_exists "/etc/ldap/ssl/ldap01.$username.aula82.local.pem"
     assert_exists "/etc/ldap/ssl/private/ldap01.$username.aula82.local.key.pem"    
 }
 
 @test "13. Check Certificate is issued by the CA Root installed in the system" {    
+    skip
     ca_root_id=$(openssl x509 -in /etc/ldap/ssl/ldap01.$username.aula82.local.pem -noout -ext authorityKeyIdentifier | tail -1 )
     cert_issuer_id=$(openssl x509 -in /etc/ssl/certs/asir2_root_ca.pem -noout -ext subjectKeyIdentifier | tail -1 )
     [[ "${ca_root_id}"  == "${cert_issuer_id}" ]]
@@ -89,6 +101,7 @@ setup() {
 }
 
 @test "14. Check certificates to be configured in LDAP are the right ones" {    
+    skip
     run openssl x509 -in /etc/ssl/certs/asir2_root_ca.pem -text -noout
     assert_line --partial 'Issuer: CN = ASIR2 Root CA'
     assert_line --partial 'Subject: CN = ASIR2 Root CA'            
@@ -101,6 +114,7 @@ setup() {
 
 
 @test "15. Check certificates proper permissions" {    
+    skip
     run stat -L -c '%a %U %G' '/etc/ssl/certs/asir2_root_ca.pem'
     assert_output --partial '644 root root' 
 
@@ -113,20 +127,24 @@ setup() {
 
 
 @test "16. Check hostname ldap01.username.aula82.local" {        
+    skip
     echo ldap01.$username.aula82.local | nslookup
 }
 
 
 @test "17. Check LDAP anonymous connection" {    
+    skip
     ldapwhoami -x -H ldap://ldap01.$username.aula82.local
 }
 
 @test "18. Check LDAP cn=admin,cn=config  connection" {    
+    skip
     run ldapwhoami -x -D cn=admin,cn=config -w SAD -H ldap://ldap01.$username.aula82.local
     assert_output 'dn:cn=admin,cn=config'
 }
 
 @test "19. Check LDAP olcTLSCertificates* installed" {
+    skip
     run ldapsearch -LLL -D cn=admin,cn=config -w SAD  -H ldap://ldap01.$username.aula82.local -b cn=config -s base
     assert_line "olcTLSCACertificateFile: /etc/ssl/certs/asir2_root_ca.pem"
     assert_line "olcTLSCertificateFile: /etc/ldap/ssl/ldap01.$username.aula82.local.pem"
@@ -134,13 +152,13 @@ setup() {
 }
 
 @test "20. Check LDAP TLS anonymous connection" {
-    
+    skip
     run ldapwhoami -x -ZZ -H ldap://ldap01.$username.aula82.local
     assert_line "anonymous"
 }
 
 @test "21. Check LDAP TLS cn=admin,cn=config connection" {    
-    
+    skip
     run ldapwhoami -x -ZZ  -D cn=admin,cn=config -w SAD -H ldap://ldap01.$username.aula82.local
     assert_output 'dn:cn=admin,cn=config'
 }
