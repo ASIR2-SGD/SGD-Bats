@@ -24,7 +24,7 @@ setup() {
 }
 
 @test "3. check private key" {            
-    openssl rsa -in ~/certs/private/ldap01.$username.aula82.local.key.pem -check  
+    openssl rsa -in ~/certs/private/$username.aula82.local.key.pem -check  
 }
 
 @test "4. Check certificate signing request info file" {            
@@ -38,10 +38,23 @@ setup() {
     assert_line --partial "CN = ldap01.$username.aula82.local"
 }
 
-@test "6. Check ldap certificate " {    
+@test "6. Check ldap certificate in certs folder" {    
     run openssl x509 -in ~/certs/ldap01.$username.aula82.local.pem -noout -issuer
     assert_output "issuer=CN = ASIR2 Root CA"
     run openssl x509 -in ~/certs/ldap01.$username.aula82.local.pem -noout -subject
+    assert_output --partial "CN = ldap01.$username.aula82.local"    
+    run openssl x509 -in ~/certs/ldap01.$username.aula82.local.pem -noout -ext keyUsage 
+    assert_line --partial  "Digital Signature, Key Encipherment"
+    run openssl x509 -in ~/certs/ssl/ldap01.$username.aula82.local.pem -noout -ext extendedKeyUsage
+    assert_line --partial "TLS Web Server Authentication"
+}
+
+
+
+@test "6. Check ldap certificate in ldap folder" {    
+    run openssl x509 -in /etc/ldap/ssl/ldap01.$username.aula82.local.pem -noout -issuer
+    assert_output "issuer=CN = ASIR2 Root CA"
+    run openssl x509 -in /etc/ldap/ssl/ldap01.$username.aula82.local.pem -noout -subject
     assert_output --partial "CN = ldap01.$username.aula82.local"    
     run openssl x509 -in /etc/ldap/ssl/ldap01.$username.aula82.local.pem -noout -ext keyUsage 
     assert_line --partial  "Digital Signature, Key Encipherment"
