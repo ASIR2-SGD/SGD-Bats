@@ -94,7 +94,7 @@ setup() {
 @test "16.Check certificate signing request(CSR)" {            
     run openssl req -text -noout -verify -in ~/certs/req/www.$username.aula82.local.csr -subject
     assert_output --partial "CN = www.$username.aula82.local"
-    run bats_pipe openssl req -in ~/certs/req/www.vinatasal.aula82.local.csr -noout -text -verify \| grep -A 1 "Extended Key Usage" 
+    run bats_pipe openssl req -in ~/certs/req/www.$username.aula82.local.csr -noout -text -verify \| grep -A 1 "Extended Key Usage" 
     assert_line --partial "TLS Web Server Authentication"
 }
 
@@ -139,7 +139,7 @@ setup() {
     run egrep "SSLCertificateFile" "/etc/apache2/sites-available/www.$username.aula82.local.conf"
     assert_line --partial "/etc/apache2/ssl/www.$username.aula82.local.pem"
     run egrep "SSLCertificateKeyFile" "/etc/apache2/sites-available/www.$username.aula82.local.conf"
-    assert_line --partial "/etc/apache2/ssl/private/vinatasal.aula82.local.key.pem"    
+    assert_line --partial "/etc/apache2/ssl/private/$username.aula82.local.key.pem"    
 }
 
 @test "22.Apache www server site enabled via a2ensite" {
