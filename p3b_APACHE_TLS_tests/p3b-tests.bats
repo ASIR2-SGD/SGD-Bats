@@ -144,10 +144,9 @@ setup() {
 
 @test "22.Apache www server site enabled via a2ensite" {
     assert_exists "/etc/apache2/sites-enabled/www.$username.aula82.local.conf"  
-    run stat -c '%F' '/etc/apache2/sites-enabled/www.$username.aula82.local.conf'
+    run stat -c '%F' /etc/apache2/sites-enabled/www.$username.aula82.local.conf
     refute_output 'regular file'   
 }
-
 
 
 @test "23.Apache server www site running" {
@@ -162,7 +161,7 @@ setup() {
 
 @test "25.Check certificates from own server" {
     server_name=www.${username}.aula82.local
-    run bats_pipe echo echo \| openssl s_client -showcerts -servername $´{server_name} -connect ${server_name}:443 2>/dev/null \| openssl x509 -noout -subject -issuer
+    run bats_pipe echo echo \| openssl s_client -showcerts -servername ${server_name} -connect ${server_name}:443 2>/dev/null \| openssl x509 -noout -subject -issuer
     assert_line "issuer=CN = ASIR2 Root CA"    
     assert_line --partial "CN = www.$username.aula82.local"    
 }
@@ -170,7 +169,6 @@ setup() {
 @test "26.Check Web page is served" {
     run curl "https://www.$username.aula82.local"
     assert_line --partial "$username"
-
 }
 
 

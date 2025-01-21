@@ -39,7 +39,7 @@ setup() {
 }
 
 @test "6. Check certificates proper permissions" {    
-    run stat -L -c '%a %U %G' "~/certs/ldap01.$username.aula82.local.pem"
+    run stat -L -c '%a %U %G' ~/certs/ldap01.$username.aula82.local.pem
     assert_output --partial '644 vagrant vagrant' 
 }
 
