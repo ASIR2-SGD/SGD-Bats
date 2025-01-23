@@ -1,5 +1,5 @@
 setup() {  
-    load "${BATS_TEST_D00IRNAME}/../common/common_setup"
+    load "${BATS_TEST_DIRNAME}/../common/common_setup"
     _common_setup  
 }
 
@@ -29,8 +29,8 @@ setup() {
 }
 
 @test "04. Verify the Integrity of an SSL/TLS certificate and Private Key Pair" {
-    private_key_hash = $(openssl x509 -modulus -noout -in ~/certs/ldap01.$username.aula82.local.pem | openssl md5)
-    cert_private_key_hash = $(openssl rsa -noout -modulus -in ~/certs/private/$username.aula82.local.key.pem | openssl md5)
+    private_key_hash=$(openssl x509 -modulus -noout -in ~/certs/ldap01.$username.aula82.local.pem | openssl md5)
+    cert_private_key_hash=$(openssl rsa -noout -modulus -in ~/certs/private/$username.aula82.local.key.pem | openssl md5)
     [[ "${private_key_hash}"  == "${cert_private_key_hash}" ]]
 }
 
@@ -118,12 +118,12 @@ setup() {
 }
 
 @test "17. check private key in ldap folder" {            
-    openssl rsa -in ~/etc/ldap/ssl/private/$username.aula82.local.key.pem -check  
+    openssl rsa -in /etc/ldap/ssl/private/$username.aula82.local.key.pem -check  
 }
 
 @test "18. Verify the Integrity of an SSL/TLS certificate and Private Key Pair in ldap folder" {
-    private_key_hash = $(openssl x509 -modulus -noout -in ~/etc/ldap/ssl/www.$username.aula82.local.pem | openssl md5)
-    cert_private_key_hash = $(openssl rsa -noout -modulus -in ~/etc/ldap/ssl/private/$username.aula82.local.key.pem | openssl md5)
+    private_key_hash=$(openssl x509 -modulus -noout -in /etc/ldap/ssl/ldap01.$username.aula82.local.pem | openssl md5)
+    cert_private_key_hash=$(openssl rsa -noout -modulus -in /etc/ldap/ssl/private/$username.aula82.local.key.pem | openssl md5)
     [[ "${private_key_hash}"  == "${cert_private_key_hash}" ]]
 }
 
@@ -143,7 +143,6 @@ setup() {
     assert_line --partial 'Issuer: CN = ASIR2 Root CA'
     assert_line --partial "CN = ldap01.$username.aula82.local"             
 }
-
 
 
 @test "21. Check certificates proper permissions" {    
