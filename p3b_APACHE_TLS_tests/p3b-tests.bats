@@ -1,63 +1,63 @@
 #username=$(ls -1 /etc/apache2/sites-enabled/ | egrep '^.+\.aula82\.local\.conf$' | sed -E 's/^(.+)\.aula82.*$/\1/')
-
+#arithmetic format('%02d'%i)
 
 setup() {  
-    load "${BATS_TEST_DIRNAME}/../common/common_setup"
+    load "${BATS_TEST_D00IRNAME}/../common/common_setup"
     _common_setup  
 }
 
-@test "2.nfs pki exported" {    
+@test "01.nfs pki exported" {    
     run cat /etc/exports
     assert_line --regexp '^/net/pki.+[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+'
 }
 
-@test "3.nfs pki exported insecure" {
+@test "02.nfs pki exported insecure" {
     run cat /etc/exports
     assert_line --regexp '^/net/pki.+[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+.+insecure'
     assert_line --regexp '^/net/pki.+[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+.+all_squash'
 }
 
-@test "4.nfs exported directories exits" {    
+@test "03.nfs exported directories exits" {    
     assert_exists '/net/pki/issued'    
     assert_exists '/net/pki/reqs'    
 }
 
-@test "5.nfs exported directories reqs is writable " { 
+@test "04.nfs exported directories reqs is writable " { 
     run stat  -L -c '%a %U %G' '/net/pki/reqs'
     assert_output --partial '777 vagrant vagrant' 
      run stat  -L -c '%a %U %G' '/net/pki/issued'
     assert_output --partial '755 vagrant vagrant'  
 }
 
-@test "6.CA_Root mounted" {    
+@test "05.CA_Root mounted" {    
     egrep '^.+:/net/pki.+/net/CA_Root' /etc/fstab
     #run cat /etc/fstab
     #assert_line --regexp '^/net/CA_Root.+192\.168\.0\.200:/net/pki$'
 }
 
-@test "7.nfs CA_Root mounted on /net/CA_Root " {        
+@test "06.nfs CA_Root mounted on /net/CA_Root " {        
     ls -l /net/CA_Root/
 }
 
-@test "8.nfs CA_Root_aula82.pem readable" {    
+@test "07.nfs CA_Root_aula82.pem readable" {    
     assert_exists /net/CA_Root/asir2_root_ca.crt 
 }
 
-@test "9.Check CA Root Certificate ready to be installed " {    
+@test "08Check CA Root Certificate ready to be installed " {    
     assert_exists '/usr/local/share/ca-certificates/asir2_root_ca.crt'    
 }
 
-@test "10.Check CA Root Certificated installed" {
+@test "09.Check CA Root Certificated installed" {
     assert_exists '/etc/ssl/certs/asir2_root_ca.pem'    
 }
 
 
-@test "11.Check CA Root Certificated installed properly via update-ca-certificates (creates a link)" {
+@test "10.Check CA Root Certificated installed properly via update-ca-certificates (creates a link)" {
     run stat -c '%F' '/etc/ssl/certs/asir2_root_ca.pem'
     refute_output 'regular file'    
 }
 
-@test "12.Check CA_Root certificatee " {    
+@test "11.Check CA_Root certificatee " {    
     run openssl x509 -in /etc/ssl/certs/asir2_root_ca.pem -noout -issuer
     assert_output "issuer=CN = ASIR2 Root CA"
     run openssl x509 -in /etc/ssl/certs/asir2_root_ca.pem -noout -subject
@@ -70,7 +70,7 @@ setup() {
 
 
 #CSR and SERVER CERT
-@test "13.Check certs folder proper permissions" {    
+@test "12.Check certs folder proper permissions" {    
     run stat  -L -c '%a %U %G' '/home/vagrant/certs'
     assert_output --partial '755 vagrant vagrant' 
 
@@ -81,8 +81,15 @@ setup() {
     assert_output --partial '750 vagrant vagrant' 
 }
 
-@test "14.check private key" {            
+@test "13.check private key" {            
     openssl rsa -in ~/certs/private/$username.aula82.local.key.pem -check  
+}
+
+
+@test "14. Verify the Integrity of an SSL/TLS certificate and Private Key Pair" {
+    private_key_hash=$(openssl x509 -modulus -noout -in ~/certs/www.$username.aula82.local.pem | openssl md5)
+    cert_private_key_hash=$(openssl rsa -noout -modulus -in ~/certs/private/$username.aula82.local.key.pem | openssl md5)
+    [[ "${private_key_hash}"  == "${cert_private_key_hash}" ]]
 }
 
 @test "15.Check certificate signing request info file" {            
@@ -132,7 +139,18 @@ setup() {
     assert_output --partial '640 root www-data'
 }
 
-@test "21.Apache www server site configuration file" {
+@test "21.check private key" {            
+    openssl rsa -in /etc/apache2/ssl/private/$username.aula82.local.key.pem -check  
+}
+
+
+@test "22. Verify the Integrity of an SSL/TLS certificate and Private Key Pair" {
+    private_key_hash=$(openssl x509 -modulus -noout -in /etc/apache2/ssl/www.$username.aula82.local.pem | openssl md5)
+    cert_private_key_hash=$(openssl rsa -noout -modulus -in /etc/apache2/ssl/private/$username.aula82.local.key.pem | openssl md5)
+    [[ "${private_key_hash}"  == "${cert_private_key_hash}" ]]
+}
+
+@test "23.Apache www server site configuration file" {
     assert_exists "/etc/apache2/sites-available/www.$username.aula82.local.conf"  
     run egrep "ServerName" "/etc/apache2/sites-available/www.$username.aula82.local.conf"
     assert_line --partial "www.$username.aula82.local"    
@@ -142,31 +160,31 @@ setup() {
     assert_line --partial "/etc/apache2/ssl/private/$username.aula82.local.key.pem"    
 }
 
-@test "22.Apache www server site enabled via a2ensite" {
+@test "24.Apache www server site enabled via a2ensite" {
     assert_exists "/etc/apache2/sites-enabled/www.$username.aula82.local.conf"  
     run stat -c '%F' /etc/apache2/sites-enabled/www.$username.aula82.local.conf
     refute_output 'regular file'   
 }
 
 
-@test "23.Apache server www site running" {
+@test "25.Apache server www site running" {
     apache2ctl -S | egrep "443.+www.$username.aula82.local"
 
 }
 
 
-@test "24.Resolving aula82 own servername" {
+@test "26.Resolving aula82 own servername" {
     echo www.$username.aula82.local | nslookup
 }
 
-@test "25.Check certificates from own server" {
+@test "27.Check certificates from own server" {
     server_name=www.${username}.aula82.local
     run bats_pipe echo echo \| openssl s_client -showcerts -servername ${server_name} -connect ${server_name}:443 2>/dev/null \| openssl x509 -noout -subject -issuer
     assert_line "issuer=CN = ASIR2 Root CA"    
     assert_line --partial "CN = www.$username.aula82.local"    
 }
 
-@test "26.Check Web page is served" {
+@test "28.Check Web page is served" {
     run curl "https://www.$username.aula82.local"
     assert_line --partial "$username"
 }
