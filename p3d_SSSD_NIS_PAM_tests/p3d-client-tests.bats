@@ -67,8 +67,7 @@ setup() {
 }
 
 @test "11. Check sssd.service is active" {                
-    run systemctl is-failed sssd.service
-    assert_output 'active'
+    systemctl is-active sssd.service    
 }
 
 
@@ -90,6 +89,6 @@ setup() {
 }
 
 
-@test "13. Check ldap user ssh connection " {            
-    sshpass -p$ldap_password ssh $username@localhost 'exit'    
+@test "13. Check ldap user ssh connection " {                
+    sshpass -p $ldap_password ssh $username@localhost 'exit'    
 }
