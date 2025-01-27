@@ -2,7 +2,7 @@
 #arithmetic format('%02d'%i)
 
 setup() {  
-    load "${BATS_TEST_D00IRNAME}/../common/common_setup"
+    load "${BATS_TEST_DIRNAME}/../common/common_setup"
     _common_setup  
 }
 
