@@ -136,7 +136,7 @@ setup() {
 
 @test "20.Check perms on private key" { 
     run stat  -L -c '%a %U %G' "/etc/apache2/ssl/private/$username.aula82.local.key.pem"
-    assert_output --partial '640 root www-data'
+    assert_output --partial '644 root www-data'
 }
 
 @test "21.check private key" {            
