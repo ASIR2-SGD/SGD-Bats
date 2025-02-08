@@ -40,29 +40,27 @@ setup() {
 }
 
 #Firewall
-@test "01. Check connectio to external should succeed" {        
+@test "01. Check connection to external should succeed" {        
     #run  nc -v -z localhost 80
     #[ "$status" -eq 0 ]
-    ping -c 1 -W 0.2 192.168.82.100
-    [[ $? -eq 0 ]]
+    run ping -c 1 -W 0.2 192.168.0.1
+    [ "$status" -eq 0 ]
 }
 
-@test "01. Check connectio to external should succeed" {        
-    ping -c 1 -W 0.2 yahoo.es    
-    [[ $? -eq 0 ]]
+@test "02. Check connection to external should succeed" {        
+    run ping -c 1 -W 0.2 yahoo.es    
+    [ "$status" -eq 0 ]
 }
 
 @test "01. Check ssh connection to fw should fail" {        
     #run  nc -v -z localhost 80
     #[ "$status" -eq 0 ]
-    nc -v -z 10.0.82.1 22
-    [[ $? -ne 0 ]]
+    run nc -w 1 -v -z 10.0.82.1 22
+    [ "$status" -ne 0 ]    
 }
 
 @test "01. Check http connection to dmz should succeed" {        
-    #run  nc -v -z localhost 80
-    #[ "$status" -eq 0 ]
-    nc -v -z 10.0.200.100 80
-    [[ $? -eq 0 ]]
+    run nc -w 1 -v -z 10.0.200.100 80
+    [ "$status" -eq 0 ]    
 }
 

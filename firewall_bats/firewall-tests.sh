@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-if [ $# -ne 3 ]; then
+if [ $# -ne 2 ]; then
     echo "Illegal number of parameters"
     echo "Usage: $0 {lan|fw|ldap|dmz} vm_wan_ip"
     exit 1
 fi
 
-target=$1
+machine=$1
 vm_wan_ip=$2
 
 case $machine in  

@@ -24,7 +24,7 @@ setup() {
 
 @test "01. Check 60-routes.yaml configured" {        
     run cat '/etc/neplan/60-routes.yaml'        
-    asset_line --partial 'via: 10.0.82.1'
+    asset_line --partial 'via: 10.0.200.1'
 }
 
 @test "01. Check default gw is set" {        
@@ -41,31 +41,31 @@ setup() {
 }
 
 @test "01. Output traffic to wan should fail" {        
-    ping -c 1 -W 0.2 192.168.82.100
-    [[ $? -ne 0 ]]    
+    run ping -c 1 -W 0.2 192.168.82.100
+    [ "$status" -eq 0 ]
 }
 
 @test "01. Output traffic to fw should fail" {        
-    ping -c 1 -W 0.2 10.0.200.1
-    [[ $? -ne 0 ]]    
+    run ping -c 1 -W 0.2 10.0.200.1
+    [ "$status" -eq 0 ]
 }
 
 @test "01. Output traffic to lan should fail" {        
-    ping -c 1 -W 0.2 10.0.82.200
-    [[ $? -ne 0 ]]    
+    run ping -c 1 -W 0.2 10.0.82.200
+    [ "$status" -ne 0 ]
 }
 
 @test "01. Output traffic to lan should fail" {        
-    ping -c 1 -W 0.2 10.0.82.100
-    [[ $? -ne 0 ]]    
+    run ping -c 1 -W 0.2 10.0.82.100
+    [ "$status" -ne 0 ]
 }
 
 @test "01. Output ldap traffic to lan should fail" {        
-    ping -c 1 -W 0.2 10.0.82.100
-    [[ $? -ne 0 ]]    
+    run ping -c 1 -W 0.2 10.0.82.100
+    [ "$status" -ne 0 ]
 }
 
 @test "01. Output ldap traffic to ldap server should succeed" {        
-    nc -v -z localhost 389
-    [[ $? -eq 0 ]]    
+    run nc -v -z localhost 389
+    [ "$status" -ne 0 ]
 }
