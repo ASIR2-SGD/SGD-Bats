@@ -33,16 +33,39 @@ setup() {
 }
 
 
-@test "02. Conectivity test" {        
-    ping 10.0.82.1
-    ping 10.0.200.1
-    ping 10.0.82.100
-    ping 10.0.200.100
-    #ping 192.168.82.100
-}
 
 
 @test "01. check ip forward enabled" {        
     run cat /proc/sys/net/ipv4/ip_forward
-    assert_output '1'
+    refute_output '1'
+}
+
+@test "01. Output traffic to wan should fail" {        
+    ping -c 1 -W 0.2 192.168.82.100
+    [[ $? -ne 0 ]]    
+}
+
+@test "01. Output traffic to fw should fail" {        
+    ping -c 1 -W 0.2 10.0.200.1
+    [[ $? -ne 0 ]]    
+}
+
+@test "01. Output traffic to lan should fail" {        
+    ping -c 1 -W 0.2 10.0.82.200
+    [[ $? -ne 0 ]]    
+}
+
+@test "01. Output traffic to lan should fail" {        
+    ping -c 1 -W 0.2 10.0.82.100
+    [[ $? -ne 0 ]]    
+}
+
+@test "01. Output ldap traffic to lan should fail" {        
+    ping -c 1 -W 0.2 10.0.82.100
+    [[ $? -ne 0 ]]    
+}
+
+@test "01. Output ldap traffic to ldap server should succeed" {        
+    nc -v -z localhost 389
+    [[ $? -eq 0 ]]    
 }

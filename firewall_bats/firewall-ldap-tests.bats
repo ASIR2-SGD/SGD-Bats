@@ -40,16 +40,16 @@ setup() {
 }
 
 #Firewall
-@test "01. Check connectio to external should succeed" {        
+@test "01. Check connectio to external should fail" {        
     #run  nc -v -z localhost 80
     #[ "$status" -eq 0 ]
     ping -c 1 -W 0.2 192.168.82.100
-    [[ $? -eq 0 ]]
+    [[ $? -ne 0 ]]
 }
 
-@test "01. Check connectio to external should succeed" {        
+@test "01. Check connectio to external should fail" {        
     ping -c 1 -W 0.2 yahoo.es    
-    [[ $? -eq 0 ]]
+    [[ $? -ne 0 ]]
 }
 
 @test "01. Check ssh connection to fw should fail" {        
@@ -59,10 +59,10 @@ setup() {
     [[ $? -ne 0 ]]
 }
 
-@test "01. Check http connection to dmz should succeed" {        
+@test "01. Check http connection to dmz should fail if not ESTABLISHED" {        
     #run  nc -v -z localhost 80
     #[ "$status" -eq 0 ]
     nc -v -z 10.0.200.100 80
-    [[ $? -eq 0 ]]
+    [[ $? -ne 0 ]]
 }
 

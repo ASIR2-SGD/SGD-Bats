@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [ $# -ne 3 ]; then
     echo "Illegal number of parameters"
-    echo "Usage: $0 {lan|fw|wan} vm_wan_ip"
+    echo "Usage: $0 {lan|fw|ldap|dmz} vm_wan_ip"
     exit 1
 fi
 
@@ -17,7 +17,12 @@ case $machine in
     echo "Running $machine tests"
     bats ./firewall-$machine-tests.bats    
   ;;
-  wan)
+  dmz)
+    echo "Running $machine tests"
+    wan_ip=$vm_wan_ip bats ./firewall-$machine-tests.bats    
+  ;;
+
+  ldap)
     echo "Running $machine tests"
     wan_ip=$vm_wan_ip bats ./firewall-$machine-tests.bats    
   ;;
