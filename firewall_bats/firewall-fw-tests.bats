@@ -15,6 +15,8 @@ setup() {
 @test "01. Check packages and other dependencies are installed" {  
     run bats_pipe dpkg-query -l iptables-persistent \| awk '/un|ii/ { print $1 }'
     assert_line 'ii'     
+    run bats_pipe dpkg-query -l apache2 \| awk '/un|ii/ { print $1 }'
+    assert_line 'un'        
 }
 
 #NAT GW Disabled
