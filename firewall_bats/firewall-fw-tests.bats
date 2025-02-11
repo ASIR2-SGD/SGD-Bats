@@ -32,12 +32,12 @@ setup() {
 
 @test "04. Check 60-routes.yaml configured" {        
     run cat '/etc/netplan/60-routes.yaml'        
-    assert_line --partial 'via: 192.168.82.1'
+    assert_line --partial 'via: 192.168.82.100'
 }
 
 @test "05. Check default gw is set" {        
     run bats_pipe route -n \| awk 'NR>2{ print $1" "$2" "$8}'
-    assert_line  '0.0.0.0 192.168.82.1 eth3'
+    assert_line  '0.0.0.0 192.168.82.100 eth3'
 }
 
 
