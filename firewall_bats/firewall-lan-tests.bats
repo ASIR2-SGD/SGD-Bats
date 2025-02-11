@@ -41,7 +41,7 @@ setup() {
 @test "06. Check connection to external should succeed" {        
     #run  nc -v -z localhost 80
     #[ "$status" -eq 0 ]
-    run ping -c 1 -W 0.2 192.168.0.1
+    run ping -c 1 -W 0.2 192.168.82.100
     [ "$status" -eq 0 ]
 }
 
