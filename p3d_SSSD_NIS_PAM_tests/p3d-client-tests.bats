@@ -89,7 +89,17 @@ setup() {
 }
 
 
-@test "12. Check system users retrieved from ldap" {                
+@test "12. ldap anonymous user *must* have read perms" {                
+    #For authentication and listing users and groups SSSD needs to bind to the LDAP directory.
+    # It’s enough to have a read-only user with just enough privileges to read the directory.
+    # Give anonymous user enough privilege to read de directory
+    # Use lam for easier management of privileges.
+    run ldapsearch -x -LLL -ZZ -H ldap://ldap01.$username.aula82.local -b dc=aula82,dc=local -s base 
+    [ $status -eq 0 ]
+}
+
+
+@test "13. Check system users retrieved from ldap" {                
     run getent passwd profesor
     assert_output 'profesor:*:10002:10101:Profesor genérico:/home/profesor:/bin/bash'
     run getent passwd alumno
@@ -107,6 +117,6 @@ setup() {
 }
 
 
-@test "13. Check ldap user ssh connection " {                
+@test "14. Check ldap user ssh connection " {                
     sshpass -p $ldap_password | ssh $username@localhost 'exit'    
 }
