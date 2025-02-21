@@ -14,7 +14,6 @@ setup() {
 
 #NAT GW Disabled
 @test "01. Check eth0 nat gw is disabled" {        
-    skip
     run bats_pipe route -n \| awk 'NR>2{ print $1" "$2" "$8}'
     refute_line  '0.0.0.0 10.0.2.2 eth0'
 }

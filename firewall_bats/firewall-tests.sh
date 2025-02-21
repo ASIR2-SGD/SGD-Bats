@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 if [ $# -ne 2 ]; then
     echo "Illegal number of parameters"
-    echo "Usage: $0 {lan|fw|ldap|dmz} vm_wan_ip"
+    echo "Usage: $0 {lan|fw|ldap|dmz}"
     exit 1
 fi
 
 machine=$1
-vm_wan_ip=$2
 
 case $machine in  
   lan)
