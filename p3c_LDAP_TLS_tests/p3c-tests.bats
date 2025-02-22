@@ -176,7 +176,7 @@ setup() {
 }
 
 @test "25. Check LDAP olcTLSCertificates* installed" {
-    run ldapsearch -LLL -D cn=admin,cn=config -w SAD  -H ldap://ldap01.$username.aula82.local -b cn=config -s base
+    run ldapsearch -o ldif_wrap=no -LLL -D cn=admin,cn=config -w SAD  -H ldap://ldap01.$username.aula82.local -b cn=config -s base
     assert_line "olcTLSCACertificateFile: /etc/ssl/certs/asir2_root_ca.pem"
     assert_line "olcTLSCertificateFile: /etc/ldap/ssl/ldap01.$username.aula82.local.pem"
     assert_line "olcTLSCertificateKeyFile: /etc/ldap/ssl/private/$username.aula82.local.key.pem"   
