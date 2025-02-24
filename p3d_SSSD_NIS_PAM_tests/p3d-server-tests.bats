@@ -2,6 +2,13 @@ setup() {
     load "${BATS_TEST_DIRNAME}/../common/common_setup"
     _common_setup  
 }
+@test "00. Check runing bats machine" {
+    skip
+    #ATTENTION: IF THIS TESTS FAILS MIGHT BE BECAUSE YOU ARE RUNNING THE server TEST IN THE WRONG MACHINE,
+    #RUN IT IN server MACHINE INSTEAD
+    run hostname
+    assert_output 'server'
+}
 
 @test "01. Check packages and other dependencies are installed" {    
     run bats_pipe dpkg-query -l slapd \| awk '/un|ii/ { print $1 }'
