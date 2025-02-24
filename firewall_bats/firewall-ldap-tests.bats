@@ -33,7 +33,6 @@ setup() {
 }
 
 
-
 @test "05. check ip forward disabled" {        
     run cat /proc/sys/net/ipv4/ip_forward
     refute_output '1'
@@ -55,12 +54,39 @@ setup() {
 @test "08. Check ssh connection to fw should fail" {        
     #run  nc -v -z localhost 80
     #[ "$status" -eq 0 ]
-    run nc -w 1-v -z 10.0.82.1 22
+    run nc -w 1 -v -z 10.0.82.1 22
     [ "$status" -ne 0 ] 
 }
 
 @test "09. Check http connection to dmz should fail if initiated from ldap server" {        
     run nc -w 1 -v -z 10.0.200.100 80
     [ "$status" -ne 0  ]   
+}
+
+@test "10. Check slapd.service is running" {        
+    systemctl is-active slapd.service
+}
+
+@test "11. Check LDAP TLS anonymous connection" {
+    run ldapwhoami -x -H ldap://10.0.82.200
+    assert_line "anonymous"
+}
+
+@test "12. Check LDAP Top object (anonymous search)" {    
+    run ldapsearch -x -LLL -H ldap://10.0.82.200 -b dc=aula82,dc=local -s base 
+    assert_line 'dn: dc=aula82,dc=local' 
+    assert_line 'objectClass: top'    
+}
+
+#ldapadd -x -ZZ -D cn=admin,dc=aula82,dc=local -w $ldap_password -H ldap://ldap01.$username.aula82.local -f ~/ldif/system-users.ldif
+@test "05. Check users are properly inserted (anonymous search)" {    
+    run ldapsearch -x -LLL -H ldap://10.0.82.200 -b dc=aula82,dc=local
+    assert_line 'dn: ou=group,dc=aula82,dc=local'
+    assert_line 'dn: ou=people,dc=aula82,dc=local'
+    assert_line 'dn: cn=admin,ou=group,dc=aula82,dc=local'
+    assert_line 'dn: cn=asir2,ou=group,dc=aula82,dc=local'
+    assert_line 'dn: cn=student,ou=group,dc=aula82,dc=local'
+    assert_line 'dn: cn=teacher,ou=group,dc=aula82,dc=local'
+    assert_line 'dn: uid=alumno,ou=people,dc=aula82,dc=local'    
 }
 
