@@ -61,34 +61,34 @@ setup() {
     #assert_line --regexp '^/net/CA_Root.+192\.168\.0\.200:/net/pki$'
 }
 
-@test "06.nfs CA_Root mounted on /net/CA_Root " {        
+@test "06.TODO" {
     skip
     ls -l /net/CA_Root/
 }
 
-@test "07.nfs CA_Root_aula82.pem readable" {    
+@test "07.TODO" {
     skip
     assert_exists /net/CA_Root/asir2_root_ca.crt 
 }
 
-@test "08Check CA Root Certificate ready to be installed " {    
+@test "08CTODO" {
     skip
     assert_exists '/usr/local/share/ca-certificates/asir2_root_ca.crt'    
 }
 
-@test "09.Check CA Root Certificated installed" {
+@test "09.TODO" {
     skip
     assert_exists '/etc/ssl/certs/asir2_root_ca.pem'    
 }
 
 
-@test "10.Check CA Root Certificated installed properly via update-ca-certificates (creates a link)" {
+@test "10.TODO" {
     skip
     run stat -c '%F' '/etc/ssl/certs/asir2_root_ca.pem'
     refute_output 'regular file'    
 }
 
-@test "11.Check CA_Root certificatee " {    
+@test "11.TODO" {
     skip
     run openssl x509 -in /etc/ssl/certs/asir2_root_ca.pem -noout -issuer
     assert_output "issuer=CN = ASIR2 Root CA"
@@ -102,7 +102,7 @@ setup() {
 
 
 #CSR and SERVER CERT
-@test "12.Check certs folder proper permissions" {    
+@test "12.TODO" {
     skip
     run stat  -L -c '%a %U %G' '/home/vagrant/certs'
     assert_output --partial '755 vagrant vagrant' 
@@ -114,27 +114,27 @@ setup() {
     assert_output --partial '750 vagrant vagrant' 
 }
 
-@test "13.check private key" {            
+@test "13.TODO" {
     skip
     openssl rsa -in ~/certs/private/$username.aula82.local.key.pem -check  
 }
 
 
-@test "14. Verify the Integrity of an SSL/TLS certificate and Private Key Pair" {
+@test "14.TODO" {
     skip
     private_key_hash=$(openssl x509 -modulus -noout -in ~/certs/www.$username.aula82.local.pem | openssl md5)
     cert_private_key_hash=$(openssl rsa -noout -modulus -in ~/certs/private/$username.aula82.local.key.pem | openssl md5)
     [[ "${private_key_hash}"  == "${cert_private_key_hash}" ]]
 }
 
-@test "15.Check certificate signing request info file" {            
+@test "15.TODO" {
     skip
     run cat ~/certs/www.$username.aula82.local.info
     assert_line --partial "cn = www.$username.aula82.local"
     assert_line --partial 'tls_www_server'
 }
 
-@test "16.Check certificate signing request(CSR)" {            
+@test "16.TODO" {
     skip
     run openssl req -text -noout -verify -in ~/certs/req/www.$username.aula82.local.csr -subject
     assert_output --partial "CN = www.$username.aula82.local"
@@ -142,7 +142,7 @@ setup() {
     assert_line --partial "TLS Web Server Authentication"
 }
 
-@test "17.Check www certificate in certs folder" {    
+@test "17.TODO" {
     skip
     run openssl x509 -in ~/certs/www.$username.aula82.local.pem -noout -issuer
     assert_output "issuer=CN = ASIR2 Root CA"
@@ -155,14 +155,14 @@ setup() {
 }
 
 #APACHE CONF
-@test "18.Apache ssl directory exists and is readable" {    
+@test "18.TODO" {
     skip
     assert_exists '/etc/apache2/ssl'   
     run stat  -L -c '%a %U %G' '/etc/apache2/ssl'
     assert_output --partial '755 root vagrant' 
 }
 
-@test "19.Check www certificate in apache folder" { 
+@test "19.TODO" {
     skip
     run openssl x509 -in /etc/apache2/ssl/www.$username.aula82.local.pem -noout -issuer
     assert_output "issuer=CN = ASIR2 Root CA"
@@ -174,26 +174,26 @@ setup() {
     assert_line --partial "TLS Web Server Authentication"
 }
 
-@test "20.Check perms on private key" { 
+@test "20.TODO" {
     skip
     run stat  -L -c '%a %U %G' "/etc/apache2/ssl/private/$username.aula82.local.key.pem"
     assert_output --partial '644 root www-data'
 }
 
-@test "21.check private key" {            
+@test "21.TODO" {
     skip
     openssl rsa -in /etc/apache2/ssl/private/$username.aula82.local.key.pem -check  
 }
 
 
-@test "22. Verify the Integrity of an SSL/TLS certificate and Private Key Pair" {
+@test "22.TODO" {
     skip
     private_key_hash=$(openssl x509 -modulus -noout -in /etc/apache2/ssl/www.$username.aula82.local.pem | openssl md5)
     cert_private_key_hash=$(openssl rsa -noout -modulus -in /etc/apache2/ssl/private/$username.aula82.local.key.pem | openssl md5)
     [[ "${private_key_hash}"  == "${cert_private_key_hash}" ]]
 }
 
-@test "23.Apache www server site configuration file" {
+@test "23.TODO" {
     skip
     assert_exists "/etc/apache2/sites-available/www.$username.aula82.local.conf"  
     run egrep "ServerName" "/etc/apache2/sites-available/www.$username.aula82.local.conf"
