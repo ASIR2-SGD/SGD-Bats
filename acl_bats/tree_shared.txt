@@ -1,0 +1,26 @@
+/shared
+├── aula13
+│   └── RLO
+│       ├── redes_1.txt
+│       ├── redes_2.txt
+│       ├── redes_3.txt
+│       └── redes_4.txt
+├── aula14
+├── aula82
+│   └── SAD
+│       ├── sad_1.txt
+│       ├── sad_2.txt
+│       ├── sad_3.txt
+│       └── sad_4.txt
+├── common
+│   ├── common_1.txt
+│   ├── common_2.txt
+│   ├── common_3.txt
+│   └── common_4.txt
+└── misc
+    ├── misc_1.txt
+    ├── misc_2.txt
+    ├── misc_3.txt
+    └── misc_4.txt
+
+8 directories, 16 files
