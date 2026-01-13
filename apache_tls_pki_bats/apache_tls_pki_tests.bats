@@ -70,7 +70,7 @@ setup() {
     run openssl x509 -in /etc/ssl/certs/root-ca.pem -noout -ext keyUsage 
     assert_line --partial  "Certificate Sign"
     run openssl x509 -in /etc/ssl/certs/root-ca.pem -noout -ext subjectKeyIdentifier
-    assert_line --partial 25:5D:2F:6F:66:E9:D5:78:5D:59:1C:52:2A:1C:CC:CF:DC:25:F4:84
+    assert_line --partial 5E:78:2A:D4:74:AA:74:AE:D1:AA:79:33:CA:90:7A:9A:CD:1A:1C:58
 }
 
 
@@ -123,7 +123,7 @@ setup() {
     run openssl x509 -in ~/certs/signed/apache.$username.local.crt -noout -ext extendedKeyUsage
     assert_line --partial "TLS Web Server Authentication"
     run openssl x509 -in ~/certs/signed/apache.$username.local.crt -noout -ext authorityKeyIdentifier
-    assert_line --partial "25:5D:2F:6F:66:E9:D5:78:5D:59:1C:52:2A:1C:CC:CF:DC:25:F4:84"
+    assert_line --partial "5E:78:2A:D4:74:AA:74:AE:D1:AA:79:33:CA:90:7A:9A:CD:1A:1C:58"
 }
 
 #APACHE CONF
@@ -146,7 +146,7 @@ setup() {
     run openssl x509 -in /etc/apache2/ssl/apache.$username.local.crt -noout -ext extendedKeyUsage
     assert_line --partial "TLS Web Server Authentication"
     run openssl x509 -in /etc/apache2/ssl/apache.$username.local.crt -noout -ext authorityKeyIdentifier
-    assert_line --partial "25:5D:2F:6F:66:E9:D5:78:5D:59:1C:52:2A:1C:CC:CF:DC:25:F4:84"
+    assert_line --partial "5E:78:2A:D4:74:AA:74:AE:D1:AA:79:33:CA:90:7A:9A:CD:1A:1C:58"
     run bats_pipe openssl x509 -in /etc/apache2/ssl/apache.$username.local.crt -noout -text -verify \| grep -A 1 "Subject Alternative Name" 
     assert_line --partial DNS:apache.$username.local    
     my_ip=$(hostname -I)    
