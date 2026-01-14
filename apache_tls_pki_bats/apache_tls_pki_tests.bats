@@ -98,7 +98,7 @@ setup() {
 }
 
 @test "15.Check certificate signing request info file" {            
-    egrep "^DNS\..+= apache\.$username\.local$" ~/certs/etc/apache.$username.asir2.grao.conf
+    egrep "^DNS\..+= apache\.$username\.asir2.grao$" ~/certs/etc/apache.$username.asir2.grao.conf
 
 }
 
