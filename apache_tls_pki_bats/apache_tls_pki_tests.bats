@@ -87,42 +87,42 @@ setup() {
 }
 
 @test "13.check private key" {            
-    openssl rsa -in ~/certs/private/apache.$username.local.key -check  
+    openssl rsa -in ~/certs/private/apache.$username.asir2.grao.key -check  
 }
 
 
 @test "14. Verify the Integrity of an SSL/TLS certificate and Private Key Pair" {
-    private_key_hash=$(openssl x509 -modulus -noout -in ~/certs/signed/apache.$username.local.crt | openssl md5)
-    cert_private_key_hash=$(openssl rsa -noout -modulus -in ~/certs/private/apache.$username.local.key | openssl md5)
+    private_key_hash=$(openssl x509 -modulus -noout -in ~/certs/signed/apache.$username.asir2.grao.crt | openssl md5)
+    cert_private_key_hash=$(openssl rsa -noout -modulus -in ~/certs/private/apache.$username.asir2.grao.key | openssl md5)
     [[ "${private_key_hash}"  == "${cert_private_key_hash}" ]]
 }
 
 @test "15.Check certificate signing request info file" {            
-    egrep "^DNS\..+= apache\.$username\.local$" ~/certs/etc/apache.$username.local.conf
+    egrep "^DNS\..+= apache\.$username\.local$" ~/certs/etc/apache.$username.asir2.grao.conf
 
 }
 
 @test "16.Check certificate signing request(CSR)" {            
-    run openssl req -text -noout -verify -in ~/certs/csr/apache.$username.local.csr -subject
-    assert_output --partial "CN = apache.$username.local"
-    run bats_pipe openssl req -in ~/certs/csr/apache.$username.local.csr -noout -text -verify \| grep -A 1 "Extended Key Usage" 
+    run openssl req -text -noout -verify -in ~/certs/csr/apache.$username.asir2.grao.csr -subject
+    assert_output --partial "CN = apache.$username.asir2.grao"
+    run bats_pipe openssl req -in ~/certs/csr/apache.$username.asir2.grao.csr -noout -text -verify \| grep -A 1 "Extended Key Usage" 
     assert_line --partial "TLS Web Server Authentication"
-    run bats_pipe openssl req -in ~/certs/csr/apache.$username.local.csr -noout -text -verify \| grep -A 1 "Subject Alternative Name" 
-    assert_line --partial DNS:apache.$username.local    
+    run bats_pipe openssl req -in ~/certs/csr/apache.$username.asir2.grao.csr -noout -text -verify \| grep -A 1 "Subject Alternative Name" 
+    assert_line --partial DNS:apache.$username.asir2.grao    
     my_ip=$(hostname -I)    
     assert_line --partial IP Address:$my_ip
 }
 
 @test "17.Check www certificate in certs folder" {    
-    run openssl x509 -in ~/certs/signed/apache.$username.local.crt -noout -issuer
+    run openssl x509 -in ~/certs/signed/apache.$username.asir2.grao.crt -noout -issuer
     assert_output "issuer=DC = edu, DC = ies-grao, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"
-    run openssl x509 -in ~/certs/signed/apache.$username.local.crt -noout -subject
-    assert_output --partial "CN = apache.$username.local"    
-    run openssl x509 -in ~/certs/signed/apache.$username.local.crt -noout -ext keyUsage 
+    run openssl x509 -in ~/certs/signed/apache.$username.asir2.grao.crt -noout -subject
+    assert_output --partial "CN = apache.$username.asir2.grao"    
+    run openssl x509 -in ~/certs/signed/apache.$username.asir2.grao.crt -noout -ext keyUsage 
     assert_line --partial  "Digital Signature, Key Encipherment"
-    run openssl x509 -in ~/certs/signed/apache.$username.local.crt -noout -ext extendedKeyUsage
+    run openssl x509 -in ~/certs/signed/apache.$username.asir2.grao.crt -noout -ext extendedKeyUsage
     assert_line --partial "TLS Web Server Authentication"
-    run openssl x509 -in ~/certs/signed/apache.$username.local.crt -noout -ext authorityKeyIdentifier
+    run openssl x509 -in ~/certs/signed/apache.$username.asir2.grao.crt -noout -ext authorityKeyIdentifier
     assert_line --partial "5E:78:2A:D4:74:AA:74:AE:D1:AA:79:33:CA:90:7A:9A:CD:1A:1C:58"
 }
 
@@ -137,18 +137,18 @@ setup() {
 }
 
 @test "19.Check www certificate in apache folder" { 
-    run openssl x509 -in /etc/apache2/ssl/apache.$username.local.crt -noout -issuer
+    run openssl x509 -in /etc/apache2/ssl/apache.$username.asir2.grao.crt -noout -issuer
     assert_output "issuer=DC = edu, DC = ies-grao, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"
-    run openssl x509 -in /etc/apache2/ssl/apache.$username.local.crt -noout -subject
-    assert_output --partial "CN = apache.$username.local"    
-    run openssl x509 -in /etc/apache2/ssl/apache.$username.local.crt -noout -ext keyUsage 
+    run openssl x509 -in /etc/apache2/ssl/apache.$username.asir2.grao.crt -noout -subject
+    assert_output --partial "CN = apache.$username.asir2.grao"    
+    run openssl x509 -in /etc/apache2/ssl/apache.$username.asir2.grao.crt -noout -ext keyUsage 
     assert_line --partial  "Digital Signature, Key Encipherment"
-    run openssl x509 -in /etc/apache2/ssl/apache.$username.local.crt -noout -ext extendedKeyUsage
+    run openssl x509 -in /etc/apache2/ssl/apache.$username.asir2.grao.crt -noout -ext extendedKeyUsage
     assert_line --partial "TLS Web Server Authentication"
-    run openssl x509 -in /etc/apache2/ssl/apache.$username.local.crt -noout -ext authorityKeyIdentifier
+    run openssl x509 -in /etc/apache2/ssl/apache.$username.asir2.grao.crt -noout -ext authorityKeyIdentifier
     assert_line --partial "5E:78:2A:D4:74:AA:74:AE:D1:AA:79:33:CA:90:7A:9A:CD:1A:1C:58"
-    run bats_pipe openssl x509 -in /etc/apache2/ssl/apache.$username.local.crt -noout -text -verify \| grep -A 1 "Subject Alternative Name" 
-    assert_line --partial DNS:apache.$username.local    
+    run bats_pipe openssl x509 -in /etc/apache2/ssl/apache.$username.asir2.grao.crt -noout -text -verify \| grep -A 1 "Subject Alternative Name" 
+    assert_line --partial DNS:apache.$username.asir2.grao    
     my_ip=$(hostname -I)    
     assert_line --partial IP Address:$my_ip
 
@@ -156,57 +156,56 @@ setup() {
 }
 
 @test "20.Check perms on private key" { 
-    run sudo -u root stat  -L -c '%a %U %G' "/etc/apache2/ssl/private/apache.$username.local.key"
+    run sudo -u root stat  -L -c '%a %U %G' "/etc/apache2/ssl/private/apache.$username.asir2.grao.key"
     assert_output --partial '640 root www-data'
 }
 
 @test "21.check private key" {            
-    sudo -u root openssl rsa -in /etc/apache2/ssl/private/apache.$username.local.key -check  
+    sudo -u root openssl rsa -in /etc/apache2/ssl/private/apache.$username.asir2.grao.key -check  
 }
 
 
 @test "22. Verify the Integrity of an SSL/TLS certificate and Private Key Pair" {
-    private_key_hash=$(openssl x509 -modulus -noout -in /etc/apache2/ssl/apache.$username.local.crt | openssl md5)
-    cert_private_key_hash=$(sudo -u root openssl rsa -noout -modulus -in /etc/apache2/ssl/private/apache.$username.local.key | openssl md5)
+    private_key_hash=$(openssl x509 -modulus -noout -in /etc/apache2/ssl/apache.$username.asir2.grao.crt | openssl md5)
+    cert_private_key_hash=$(sudo -u root openssl rsa -noout -modulus -in /etc/apache2/ssl/private/apache.$username.asir2.grao.key | openssl md5)
     [[ "${private_key_hash}"  == "${cert_private_key_hash}" ]]
 }
 
 @test "23.Apache www server site configuration file" {
-    assert_exists "/etc/apache2/sites-available/apache.$username.local.conf"  
-    run egrep "ServerName" "/etc/apache2/sites-available/apache.$username.local.conf"
-    assert_line --partial "apache.$username.local"    
-    run egrep "SSLCertificateFile" "/etc/apache2/sites-available/apache.$username.local.conf"
-    assert_line --partial "/etc/apache2/ssl/apache.$username.local.crt"
-    run egrep "SSLCertificateKeyFile" "/etc/apache2/sites-available/apache.$username.local.conf"
-    assert_line --partial "/etc/apache2/ssl/private/apache.$username.local.key"    
+    assert_exists "/etc/apache2/sites-available/apache.$username.asir2.grao.conf"  
+    run egrep "ServerName" "/etc/apache2/sites-available/apache.$username.asir2.grao.conf"
+    assert_line --partial "apache.$username.asir2.grao"    
+    run egrep "SSLCertificateFile" "/etc/apache2/sites-available/apache.$username.asir2.grao.conf"
+    assert_line --partial "/etc/apache2/ssl/apache.$username.asir2.grao.crt"
+    run egrep "SSLCertificateKeyFile" "/etc/apache2/sites-available/apache.$username.asir2.grao.conf"
+    assert_line --partial "/etc/apache2/ssl/private/apache.$username.asir2.grao.key"    
 }
 
 @test "24.Apache www server site enabled via a2ensite" {
-    assert_exists "/etc/apache2/sites-enabled/apache.$username.local.conf"  
-    run stat -c '%F' /etc/apache2/sites-enabled/apache.$username.local.conf
+    assert_exists "/etc/apache2/sites-enabled/apache.$username.asir2.grao.conf"  
+    run stat -c '%F' /etc/apache2/sites-enabled/apache.$username.asir2.grao.conf
     refute_output 'regular file'   
 }
 
 
 @test "25.Apache server www site running" {
-    apache2ctl -S | egrep "443.+apache.$username.local"
+    apache2ctl -S | egrep "443.+apache.$username.asir2.grao"
 
 }
 
-
 @test "26.Resolving WebServer DNS name" {
-    host apache.$username.local
+    host apache.$username.asir2.grao
 }
 
 @test "27.Check certificates from own server" {
-    server_name=apache.${username}.local
+    server_name=apache.${username}.asir2.grao
     run bats_pipe echo echo \| openssl s_client -showcerts -servername ${server_name} -connect ${server_name}:443 2>/dev/null \| openssl x509 -noout -subject -issuer
     assert_line "issuer=DC = edu, DC = ies-grao, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"    
-    assert_line --partial "CN = apache.$username.local"    
+    assert_line --partial "CN = apache.$username.asir2.grao"    
 }
 
 @test "28.Check Web page is served" {
-    run curl "https://apache.$username.local"
+    run curl "https://apache.$username.asir2.grao"
     assert_line --partial "$username"
 }
 
