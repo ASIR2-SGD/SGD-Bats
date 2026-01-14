@@ -64,9 +64,9 @@ setup() {
 
 @test "11.Check root-ca certificatee " {    
     run openssl x509 -in /etc/ssl/certs/root-ca.pem -noout -issuer
-    assert_output "issuer=DC = edu, DC = ies-grao, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"
+    assert_output "issuer=DC = grao, DC = asir2, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"
     run openssl x509 -in /etc/ssl/certs/root-ca.pem -noout -subject
-    assert_output "subject=DC = edu, DC = ies-grao, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"
+    assert_output "subject=DC = grao, DC = asir2, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"
     run openssl x509 -in /etc/ssl/certs/root-ca.pem -noout -ext keyUsage 
     assert_line --partial  "Certificate Sign"
     run openssl x509 -in /etc/ssl/certs/root-ca.pem -noout -ext subjectKeyIdentifier
@@ -115,7 +115,7 @@ setup() {
 
 @test "17.Check www certificate in certs folder" {    
     run openssl x509 -in ~/certs/signed/apache.$username.asir2.grao.crt -noout -issuer
-    assert_output "issuer=DC = edu, DC = ies-grao, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"
+    assert_output "issuer=DC = grao, DC = asir2, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"
     run openssl x509 -in ~/certs/signed/apache.$username.asir2.grao.crt -noout -subject
     assert_output --partial "CN = apache.$username.asir2.grao"    
     run openssl x509 -in ~/certs/signed/apache.$username.asir2.grao.crt -noout -ext keyUsage 
@@ -138,7 +138,7 @@ setup() {
 
 @test "19.Check www certificate in apache folder" { 
     run openssl x509 -in /etc/apache2/ssl/apache.$username.asir2.grao.crt -noout -issuer
-    assert_output "issuer=DC = edu, DC = ies-grao, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"
+    assert_output "issuer=DC = grao, DC = asir2, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"
     run openssl x509 -in /etc/apache2/ssl/apache.$username.asir2.grao.crt -noout -subject
     assert_output --partial "CN = apache.$username.asir2.grao"    
     run openssl x509 -in /etc/apache2/ssl/apache.$username.asir2.grao.crt -noout -ext keyUsage 
@@ -200,7 +200,7 @@ setup() {
 @test "27.Check certificates from own server" {
     server_name=apache.${username}.asir2.grao
     run bats_pipe echo echo \| openssl s_client -showcerts -servername ${server_name} -connect ${server_name}:443 2>/dev/null \| openssl x509 -noout -subject -issuer
-    assert_line "issuer=DC = edu, DC = ies-grao, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"    
+    assert_line "issuer=DC = grao, DC = asir2, O = IES Grao Inc, CN = IES Grao Root CA, subjectAltName = IES GRAO Root CA"    
     assert_line --partial "CN = apache.$username.asir2.grao"    
 }
 
