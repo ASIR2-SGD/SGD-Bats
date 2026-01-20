@@ -138,7 +138,7 @@ setup() {
 
 @test "19.Check www certificate in apache folder" { 
     run openssl x509 -in /etc/apache2/ssl/apache.$username.asir2.grao.crt -noout -issuer
-    assert_output "issuer=DC = grao, DC = asir2, O = IES Grao Inc, CN = IES Grao Root CAt CA"
+    assert_output "issuer=DC = grao, DC = asir2, O = IES Grao Inc, CN = IES Grao Root CA"
     run openssl x509 -in /etc/apache2/ssl/apache.$username.asir2.grao.crt -noout -subject
     assert_output --partial "CN = apache.$username.asir2.grao"    
     run openssl x509 -in /etc/apache2/ssl/apache.$username.asir2.grao.crt -noout -ext keyUsage 
