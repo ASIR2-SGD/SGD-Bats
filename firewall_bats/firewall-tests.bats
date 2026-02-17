@@ -2,13 +2,29 @@
 
 setup() {  
     load "${BATS_TEST_DIRNAME}/../common/common_setup"
-    _common_setup  
-    LAN1=lan1
-    LAN2=lan2
-    FW=firewall
-    FW_IP=10.10.81.1
-    LAN_NET=10.10.81.*/24
+    _common_setup      
+}
 
+setup_file() {
+    LAN1=lan1
+    export LAN1
+    LAN2=lan2
+    export LAN2
+    FW=firewall
+    export FW
+    FW_LAN_IP=10.10.81.1
+    export FW_LAN_IP
+    LAN_NET=10.10.81.*/24
+    export LAN_NET
+    LAN1_IP=$(incus exec $LAN1 -- ip route get 8.8.8.8 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
+    export LAN1_IP
+    LAN2_IP=$(incus exec $LAN2 -- ip route get 8.8.8.8 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
+    export LAN2_IP
+    FW_WAN_IP=$(incus exec $FW -- ip route get 8.8.8.8 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
+    export FW_WAN_IP
+    INCUSBR0_IP4=$(incus network get incusbr0 ipv4.address)
+    INCUSBR0_IP4=${INCUSBR0_IP4%/*}
+    export INCUSBR0_IP4
 }
 
 #DNS and DNSMASQ configuration
@@ -19,7 +35,7 @@ setup() {
 
 @test "01. [FW]Check firewall lan ip" {
     
-    incus exec $FW -- ip a show lan | grep "$FW_IP"
+    incus exec $FW -- ip a show lan | grep "$FW_LAN_IP"
 }
 
 @test "02. [FW]Check packages and other dependencies are installed" {  
@@ -29,9 +45,6 @@ setup() {
 }
 
 @test "03. [FW]check dnsmasq properly configured" { 
-    INCUSBR0_IP4=$(incus network get incusbr0 ipv4.address)
-    INCUSBR0_IP4=${INCUSBR0_IP4%/*}
-
     incus exec $FW -- grep "^server=$INCUSBR0_IP4@wan$" /etc/dnsmasq.d/lan.conf
     incus exec $FW -- grep '^bind-interfaces$' /etc/dnsmasq.d/lan.conf
     incus exec $FW -- grep '^dhcp-option=option:domain-name,asir2.grao' /etc/dnsmasq.d/lan.conf    
@@ -43,7 +56,7 @@ setup() {
 }
 
 @test "05. [FW]Check DNSs points to itself" { 
-    incus exec $FW -- resolvectl status lan | grep "DNS Servers: $FW_IP"
+    incus exec $FW -- resolvectl status lan | grep "DNS Servers: $FW_LAN_IP"
     incus exec $FW -- resolvectl status lan | grep "DNS Domain: asir2.grao"
     incus exec $FW -- resolvectl status wan | grep "DNS Servers: $ICNUSBR0_IP4"
     incus exec $FW -- resolvectl status wan | grep "DNS Domain: incus"
@@ -69,16 +82,16 @@ setup() {
 }
 
 @test "09. [LAN]Check DNS" { 
-    incus exec $LAN1 -- resolvectl status eth0 | grep "DNS Servers: $FW_IP"
+    incus exec $LAN1 -- resolvectl status eth0 | grep "DNS Servers: $FW_LAN_IP"
     incus exec $LAN1 -- resolvectl status eth0 | grep "DNS Domain: asir2.grao"
-    incus exec $LAN2 -- resolvectl status eth0 | grep "DNS Servers: $FW_IP"
+    incus exec $LAN2 -- resolvectl status eth0 | grep "DNS Servers: $FW_LAN_IP"
     incus exec $LAN2 -- resolvectl status eth0 | grep "DNS Domain: asir2.grao"
 }
 
 
 @test "10. [LAN]Check GW " { 
-    incus exec $LAN1 -- ip route show default | grep $FW_IP
-    incus exec $LAN2 -- ip route show default | grep $FW_IP
+    incus exec $LAN1 -- ip route show default | grep $FW_LAN_IP
+    incus exec $LAN2 -- ip route show default | grep $FW_LAN_IP
 }
 
 @test "11. [LAN]Test lan ping and name resolution" { 
@@ -96,42 +109,83 @@ setup() {
 
 
 
-
-
-#NAT GW Disabled
-@test "13. Check eth0 nat gw is disabled" {        
-    skip
-    run bats_pipe route -n \| awk 'NR>2{ print $1" "$2" "$8}'
-    refute_line  '0.0.0.0 10.0.2.2 eth0'
+#NFTABLES
+@test "13. [FW]check existence of tables and proper table names" {        
+    incus exec $FW -- nft list tables | grep 'table inet filter'
+    incus exec $FW -- nft list tables | grep 'table inet nat'     
 }
 
-@test "14. Check 60-routes.yaml exists" {        
-    skip
-    assert_exists '/etc/netplan/60-routes.yaml'        
+@test "14. [FW]check restrictive policy for chains in filter table" {        
+    incus exec $FW -- nft list chain inet filter forward | grep 'policy drop' 
+    incus exec $FW -- nft list chain inet filter input | grep 'policy drop'  
+    incus exec $FW -- nft list chain inet filter output | grep 'policy drop' 
 }
 
-@test "15. Check 60-routes.yaml configured" {        
-    skip
-    run cat '/etc/netplan/60-routes.yaml'        
-    assert_line --partial 'via: 192.168.82.100'
+@test "15. [FW]check permisive policy for postrouting chain in nat table" {        
+    incus exec $FW -- nft list chain inet nat postrouting | grep 'policy accept'
 }
 
-@test "16. Check default gw is set" {        
-    skip
-    run bats_pipe route -n \| awk 'NR>2{ print $1" "$2" "$8}'
-    assert_line  '0.0.0.0 192.168.82.100 eth3'
+#TEST FROM WAN TO FW
+
+@test "16. [WAN->FW] ping from wan should work on FW" { 
+    ping -c 1 -W 0.2 $FW_WAN_IP    
+}
+
+@test "17. [WAN->FW] other ports should be closed on FW" { 
+      run nc -w 1 -v -z $FW_WAN_IP 22
+      [ "$status" -ne 0 ]
+      run nc -w 1 -v -z $FW_WAN_IP 53
+      [ "$status" -ne 0 ]
+      run nc -w 1 -v -z $FW_WAN_IP 67
+      [ "$status" -ne 0 ]
 }
 
 
-##RULES
-@test "17. Traffic from loopback interface should succeed" {        
-    skip
-    run ping -c 1 -W 0.2 localhost
-    [ "$status" -eq 0 ]
+
+
+
+#TEST TO WAN FROM FW
+@test "18. [FW->WAN] ping to WAN from FW should work" { 
+    incus exec $FW -- ping -c 1 -W 0.2 yahoo.es    
 }
 
-@test "18. Output traffic  generated by fw should fail" {        
-    skip
-    run ping -c 1 -W 0.2 192.168.82.100
+@test "19. [FW->WAN] web ports to WAN from FW should work" { 
+    incus exec $FW -- curl google.com
+}
+
+@test "20. [FW->WAN] dns ports to WAN from FW should work" { 
+    incus exec $FW -- nc -u -w 1 -v -z $INCUSBR0_IP4 53    
+}
+
+@test "21. [FW->WAN] other output ports should be ketp closed on FW" { 
+    run incus exec $FW -- nc -u -w 1 -v -z $INCUSBR0_IP4 68
+    [ "$status" -ne 0 ]
+
+    run incus exec $FW -- nc -w 1 -v -z $INCUSBR0_IP4 22
     [ "$status" -ne 0 ]
 }
+
+
+#SNAT && LAN
+@test "22. [LAN]NAT check, clients can surf the net" {        
+    incus exec $LAN1 -- ping -c 1 -W 0.2 yahoo.es
+    incus exec $LAN2 -- ping -c 1 -W 0.2 yahoo.es 
+    incus exec $LAN1 -- curl google.com
+    incus exec $LAN2 -- curl google.com
+}
+
+#TEST FROM LAN1 !ssh
+@test "23. [LAN]SSH to FW from LAN1 should fail" {        
+    run incus exec $LAN1 -- nc -w 1 -v -z $FW_LAN_IP 22
+    [ "$status" -ne 0 ]
+}
+
+
+#TEST FROM LAN2 ssh
+
+@test "24. [LAN]SSH to FW from LAN2 should succed!" {        
+    incus exec $LAN2 -- nc -w 1 -v -z $FW_LAN_IP 22
+}
+
+
+#TODO Check dmz
